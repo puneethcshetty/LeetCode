@@ -1,4 +1,4 @@
-package solution.leetcode42;
+package solutions.leetcode42;
 
 class Solution {
     public int trap(int[] height) {
