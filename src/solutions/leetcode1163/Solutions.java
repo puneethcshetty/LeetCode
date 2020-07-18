@@ -7,11 +7,9 @@ class Solution {
         for(int i=0 ; i<s.length() ; i++){
             if(s.charAt(i) - 'a' > s.charAt(max)- 'a')
                 max = i;
-            else if(s.charAt(i) == (s.charAt(max))){
-                for(int j = 1 ; j<i-max ; j++)
-                    if(i +j < s.length() && s.charAt(i+j) - 'a' > s.charAt(max+j)- 'a')
-                        max = i;
-            }
+            else if(s.charAt(i) == (s.charAt(max)))
+                if(s.substring(i).compareTo(s.substring(max)) > 0)
+                    max = i;
         }
         return s.substring(max);
     }
