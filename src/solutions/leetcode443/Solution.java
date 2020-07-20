@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
+	
+	//using list
     public int compress(char[] chars) {
         int l=0, c=0;
         if(chars.length == 1)
@@ -33,6 +35,22 @@ class Solution {
         for(Character ch : list)
             chars[k++] = ch;
         return list.size();
+    }
+    
+    //better solution
+    public int compress1(char[] chars) {
+        int l=0, c=0;
+        for(int i=0 ;i<chars.length ;i++){
+            c++;
+            if(i == chars.length -1 || chars[i] != chars[i+1]){
+                chars[l++] = chars[i];
+                if(c>1)
+                    for(char n : String.valueOf(c).toCharArray())
+                        chars[l++] = n;
+                c=0;
+            }
+        }
+        return l;
     }
 
 	public static void main(String[] args) {
